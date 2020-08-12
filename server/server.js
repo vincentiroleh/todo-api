@@ -14,9 +14,18 @@ app.post('/todos', (req, res) => {
         text: req.body.text
     });
     todo.save().then((doc) => {
-        res.status(200).send(doc)
+        res.status(200).json({ doc })
     }).catch(err => res.status(400).json({ error: err.message }))
 });
+
+app.get('/todos', (req, res) => {
+    Todo.find().then((todos) => {
+        res.json({
+            status: 200,
+            todos,
+        })
+    }).catch(err => res.status(400).json({ err }))
+})
 
 
 app.listen(3000, () => console.log('Started on port 3000'));
