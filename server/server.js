@@ -72,6 +72,8 @@ app.patch('/todos/:id', (req, res) => {
 
 })
 
+app.get('*', (req, res) => res.send(`Hey dev, check out the <a href="https://github.com/vincentiroleh/todo-api"> docs </a> on github`) )
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Started on port ${port}`));
 
