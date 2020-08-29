@@ -1,3 +1,5 @@
+require('./config/config');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const _ = require('lodash');
@@ -72,9 +74,9 @@ app.patch('/todos/:id', (req, res) => {
 
 })
 
-app.get('*', (req, res) => res.send(`Hey dev, check out the <a href="https://github.com/vincentiroleh/todo-api"> docs </a> on github`) )
+app.get('*', (req, res) => res.send(`Hey dev, check out the <a href="https://github.com/vincentiroleh/todo-api"> docs </a> on github`))
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 app.listen(port, () => console.log(`Started on port ${port}`));
 
 module.exports = { app };
